@@ -2,26 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://gvp1211.github.io/ai-shr-youtime/posts/lesson-1---an-introduction-to-ai/</loc>
+    <loc>http://localhost:1313/ai-shr-youtime/posts/lesson-1---an-introduction-to-ai/</loc>
     <lastmod>2024-10-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gvp1211.github.io/ai-shr-youtime/posts/lesson-2---types-of-ai/</loc>
+    <loc>http://localhost:1313/ai-shr-youtime/posts/lesson-2---types-of-ai/</loc>
     <lastmod>2024-10-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gvp1211.github.io/ai-shr-youtime/posts/lesson-3---neural-networks/</loc>
+    <loc>http://localhost:1313/ai-shr-youtime/posts/lesson-3---neural-networks/</loc>
     <lastmod>2024-10-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gvp1211.github.io/ai-shr-youtime/posts/lesson-4---mnist-neural-network/</loc>
+    <loc>http://localhost:1313/ai-shr-youtime/posts/lesson-4---mnist-neural-network/</loc>
     <lastmod>2024-10-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gvp1211.github.io/ai-shr-youtime/posts/</loc>
+    <loc>http://localhost:1313/ai-shr-youtime/posts/</loc>
     <lastmod>2024-10-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gvp1211.github.io/ai-shr-youtime/</loc>
+    <loc>http://localhost:1313/ai-shr-youtime/</loc>
     <lastmod>2024-10-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gvp1211.github.io/ai-shr-youtime/categories/</loc>
+    <loc>http://localhost:1313/ai-shr-youtime/categories/</loc>
   </url><url>
-    <loc>https://gvp1211.github.io/ai-shr-youtime/tags/</loc>
+    <loc>http://localhost:1313/ai-shr-youtime/tags/</loc>
   </url>
 </urlset>
