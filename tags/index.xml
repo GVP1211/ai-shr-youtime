@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on AI Learning</title>
-    <link>http://localhost:1313/ai-shr-youtime/tags/</link>
+    <link>https://gvp1211.github.io/ai-shr-youtime/tags/</link>
     <description>Recent content in Tags on AI Learning</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- 0.128.0</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/ai-shr-youtime/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://gvp1211.github.io/ai-shr-youtime/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
