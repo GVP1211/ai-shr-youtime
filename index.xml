@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AI Unwrapped: Your Journey Through Artificial Intelligence on AI Learning</title>
     <link>https://gvp1211.github.io/ai-shr-youtime/</link>
     <description>Recent content in AI Unwrapped: Your Journey Through Artificial Intelligence on AI Learning</description>
-    <generator>Hugo -- 0.128.0</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate></lastBuildDate>
     <atom:link href="https://gvp1211.github.io/ai-shr-youtime/index.xml" rel="self" type="application/rss+xml" />
