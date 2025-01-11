@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://gvp1211.github.io/ai-shr-youtime/posts/about-me/</loc>
+    <lastmod>2024-10-27T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://gvp1211.github.io/ai-shr-youtime/</loc>
     <lastmod>2024-10-27T00:00:00+00:00</lastmod>
   </url><url>
@@ -12,9 +15,6 @@
     <lastmod>2024-10-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gvp1211.github.io/ai-shr-youtime/posts/lesson-3---neural-networks/</loc>
-    <lastmod>2024-10-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://gvp1211.github.io/ai-shr-youtime/posts/about-me/</loc>
     <lastmod>2024-10-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gvp1211.github.io/ai-shr-youtime/posts/lesson-4---demo--mnist-neural-network/</loc>

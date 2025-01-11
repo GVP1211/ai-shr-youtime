@@ -4,7 +4,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>Lesson 4 - Demo: MNIST neural network - AI Learning</title>
-<meta name="generator" content="Hugo 0.128.0">
+<meta name="generator" content="Hugo 0.140.2">
 <link href="https://gvp1211.github.io/ai-shr-youtime//index.xml" rel="alternate" type="application/rss+xml">
 <link rel="canonical" href="https://gvp1211.github.io/ai-shr-youtime/posts/lesson-4---demo--mnist-neural-network/">
 <link rel="stylesheet" href="https://gvp1211.github.io/ai-shr-youtime/css/theme.min.css">
@@ -20,21 +20,21 @@
   <meta property="og:site_name" content="AI Learning">
   <meta property="og:title" content="Lesson 4 - Demo: MNIST neural network">
   <meta property="og:description" content="Making your first neural network from scratch For the first model, we will be making a model that can recognise handwritten numbers using the MNIST dataset.
-Designing the model Firstly, the MNIST database contains 70000 handwritten numbers in a grey-scale 28 x 28 bitmap image. The database will have a 2-D array containing the pixels each with a value between 0 to 255 on the grey-scale and a separate array of data with the labels.">
+Designing the model Firstly, the MNIST database contains 70000 handwritten numbers in a grey-scale 28 x 28 bitmap image. The database will have a 2-D array containing the pixels each with a value between 0 to 255 on the grey-scale and a separate array of data with the labels. This means there are 784 pixels in total per input data, therefore we will have 784 input nodes.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Lesson 4 - Demo: MNIST neural network">
   <meta name="twitter:description" content="Making your first neural network from scratch For the first model, we will be making a model that can recognise handwritten numbers using the MNIST dataset.
-Designing the model Firstly, the MNIST database contains 70000 handwritten numbers in a grey-scale 28 x 28 bitmap image. The database will have a 2-D array containing the pixels each with a value between 0 to 255 on the grey-scale and a separate array of data with the labels.">
+Designing the model Firstly, the MNIST database contains 70000 handwritten numbers in a grey-scale 28 x 28 bitmap image. The database will have a 2-D array containing the pixels each with a value between 0 to 255 on the grey-scale and a separate array of data with the labels. This means there are 784 pixels in total per input data, therefore we will have 784 input nodes.">
 
   <meta itemprop="name" content="Lesson 4 - Demo: MNIST neural network">
   <meta itemprop="description" content="Making your first neural network from scratch For the first model, we will be making a model that can recognise handwritten numbers using the MNIST dataset.
-Designing the model Firstly, the MNIST database contains 70000 handwritten numbers in a grey-scale 28 x 28 bitmap image. The database will have a 2-D array containing the pixels each with a value between 0 to 255 on the grey-scale and a separate array of data with the labels.">
+Designing the model Firstly, the MNIST database contains 70000 handwritten numbers in a grey-scale 28 x 28 bitmap image. The database will have a 2-D array containing the pixels each with a value between 0 to 255 on the grey-scale and a separate array of data with the labels. This means there are 784 pixels in total per input data, therefore we will have 784 input nodes.">
   <meta itemprop="datePublished" content="2024-10-27T00:00:00+00:00">
   <meta itemprop="dateModified" content="2024-10-27T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1788"></head>
+  <meta itemprop="wordCount" content="1882"></head>
 <body><div class="container"><header>
 <h1>AI Learning</h1>
 </header>
@@ -85,7 +85,11 @@ These 4 steps will loop a certain amount of time until the model is accurate eno
 <h2 id="coding">Coding</h2>
 <p>This code will be done in google colab.</p>
 <h3 id="initialisation-1">Initialisation</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/tmp&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> requests<span style="color:#f92672">,</span> gzip<span style="color:#f92672">,</span> os<span style="color:#f92672">,</span> hashlib
+</span></span><span style="display:flex;"><span><span style="color:#f92672">%</span>pylab inline
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/tmp&#39;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fetch</span>(url): <span style="color:#75715e">#This code can be ignored, it is just fetching data from a online file</span>
 </span></span><span style="display:flex;"><span>  fp <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(path, hashlib<span style="color:#f92672">.</span>md5(url<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#39;utf-8&#39;</span>))<span style="color:#f92672">.</span>hexdigest())
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>isfile(fp):
@@ -109,6 +113,13 @@ These 4 steps will loop a certain amount of time until the model is accurate eno
 </span></span><span style="display:flex;"><span>  W2 <span style="color:#f92672">=</span> (np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">40</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.5</span>)<span style="color:#f92672">.</span>astype(<span style="color:#e6db74">&#39;double&#39;</span>)
 </span></span><span style="display:flex;"><span>  b2 <span style="color:#f92672">=</span> (np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">1</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.5</span>)<span style="color:#f92672">.</span>astype(<span style="color:#e6db74">&#39;double&#39;</span>)
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> W1, b1, W2, b2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">one_hot</span>(Y): <span style="color:#75715e">#one hot encoding changes the lable from a 4 into an array size 10 with a 1 in the nth index and 0 everywhere else</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#this allows you calculate the loss easily</span>
+</span></span><span style="display:flex;"><span>  one_hot_Y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros((Y<span style="color:#f92672">.</span>size, <span style="color:#ae81ff">10</span>))
+</span></span><span style="display:flex;"><span>  one_hot_Y[np<span style="color:#f92672">.</span>arange(Y<span style="color:#f92672">.</span>size), Y] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  one_hot_Y <span style="color:#f92672">=</span> one_hot_Y<span style="color:#f92672">.</span>T
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> one_hot_Y
 </span></span></code></pre></div><h3 id="forward-propagation-1">Forward propagation</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sigmoid</span>(Z): <span style="color:#75715e">#Activation function is to increase complexity and make the model non-linear, it also compresses all values to between 0 and 1</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>Z))
@@ -150,16 +161,21 @@ These 4 steps will loop a certain amount of time until the model is accurate eno
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_accuracy</span>(predictions, Y): <span style="color:#75715e">#Calculates accuracy based on all predictions and all lables</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>sum(predictions <span style="color:#f92672">==</span> Y) <span style="color:#f92672">/</span> Y<span style="color:#f92672">.</span>size
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">gradient_descent</span>(X, Y, X_test, Y_test, lr, epochs, accuracies, test_accuracies, W1 <span style="color:#f92672">=</span> [], b1 <span style="color:#f92672">=</span> [], W2 <span style="color:#f92672">=</span> [], b2 <span style="color:#f92672">=</span> []): <span style="color:#75715e">#Training the model</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">gradient_descent</span>(X, Y, X_test, Y_test, lr, epochs, accuracies, test_accuracies, init, W1 <span style="color:#f92672">=</span> [], b1 <span style="color:#f92672">=</span> [], W2 <span style="color:#f92672">=</span> [], b2 <span style="color:#f92672">=</span> []): <span style="color:#75715e">#Training the model</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> init <span style="color:#f92672">is</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>    W1, b1, W2, b2 <span style="color:#f92672">=</span> init_params()
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(epochs):
 </span></span><span style="display:flex;"><span>    Z1, A1, Z2, A2 <span style="color:#f92672">=</span> forward_prop(W1, b1, W2, b2, X) <span style="color:#75715e">#forward propagation</span>
 </span></span><span style="display:flex;"><span>    dW1, db1, dW2, db2 <span style="color:#f92672">=</span> back_prop(Z1, A1, Z2, A2, W1, W2, X, Y) <span style="color:#75715e">#back propagation</span>
 </span></span><span style="display:flex;"><span>    W1, b1, W2, b2 <span style="color:#f92672">=</span> update_params(W1, b1, W2, b2, dW1, db1, dW2, db2, lr) <span style="color:#75715e">#update weights and biases</span>
 </span></span><span style="display:flex;"><span>    predictions <span style="color:#f92672">=</span> get_predictions(A2)
 </span></span><span style="display:flex;"><span>    accuracies<span style="color:#f92672">.</span>append(get_accuracy(predictions, Y)) <span style="color:#75715e">#Keep track of accuracy whilst training</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> i <span style="color:#f92672">%</span> <span style="color:#ae81ff">50</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>    predictions_test <span style="color:#f92672">=</span> make_predictions(X_test, W1, b1, W2, b2) <span style="color:#75715e">#Get accuracy from the test/ validation data</span>
+</span></span><span style="display:flex;"><span>    test_accuracies<span style="color:#f92672">.</span>append(get_accuracy(predictions_test, Y_test)) <span style="color:#75715e">#:)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> i <span style="color:#f92672">%</span> <span style="color:#ae81ff">20</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
 </span></span><span style="display:flex;"><span>      print(<span style="color:#e6db74">&#34;Iteration: &#34;</span>, i)
-</span></span><span style="display:flex;"><span>      print(get_accuracy(predictions, Y)) <span style="color:#75715e">#prints accuracy whilst training every 50 loops</span>
+</span></span><span style="display:flex;"><span>      print(<span style="color:#e6db74">&#34;train accuracy: &#34;</span>, get_accuracy(predictions, Y)) <span style="color:#75715e">#prints accuracy whilst training every 50 loops</span>
+</span></span><span style="display:flex;"><span>      print(<span style="color:#e6db74">&#34;test accuracy: &#34;</span>, get_accuracy(predictions_test, Y_test))
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> W1, b1, W2, b2, A2, accuracies, test_accuracies
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>accuracies <span style="color:#f92672">=</span> []
@@ -261,8 +277,8 @@ Last updated on 27 Oct 2024
 
 <br>
 Published on 27 Oct 2024
-<br></div><nav class="pagination"><a class="nav nav-prev" href="https://gvp1211.github.io/ai-shr-youtime/posts/about-me/" title="Lesson 4 - Demo: MNIST neural network"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Lesson 4 - Demo: MNIST neural network</a>
-<a class="nav nav-next" href="https://gvp1211.github.io/ai-shr-youtime/posts/lesson-1---an-introduction-to-ai/" title="Lesson 1- An introduction to AI">Next - Lesson 1- An introduction to AI <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+<br></div><nav class="pagination"><a class="nav nav-prev" href="https://gvp1211.github.io/ai-shr-youtime/posts/lesson-3---neural-networks/" title="Lesson 3 - Neural networks"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Lesson 3 - Neural networks</a>
+<a class="nav nav-next" href="https://gvp1211.github.io/ai-shr-youtime/posts/about-me/" title="About Me">Next - About Me <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
 </nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
 </footer>
 </main>
@@ -276,6 +292,10 @@ Published on 27 Oct 2024
   
 <ul class="sub-menu">
 
+<li class=""><a href="https://gvp1211.github.io/ai-shr-youtime/posts/about-me/">About Me</a>
+  
+</li>
+
 <li class=""><a href="https://gvp1211.github.io/ai-shr-youtime/posts/lesson-1---an-introduction-to-ai/">Lesson 1- An introduction to AI</a>
   
 </li>
@@ -285,10 +305,6 @@ Published on 27 Oct 2024
 </li>
 
 <li class=""><a href="https://gvp1211.github.io/ai-shr-youtime/posts/lesson-3---neural-networks/">Lesson 3 - Neural networks</a>
-  
-</li>
-
-<li class=""><a href="https://gvp1211.github.io/ai-shr-youtime/posts/about-me/">Lesson 4 - Demo: MNIST neural network</a>
   
 </li>
 
